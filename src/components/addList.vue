@@ -25,6 +25,7 @@
           v-for="(item, index) in taskList"
           :key="index"
           ref="listItem"
+          class="list-item"
         >
           <input
             type="text"
@@ -36,7 +37,7 @@
           >
         </li>
       </ul>
-      <button class="btn-add" @click="addBoard">
+      <button class="btn-add">
         <span>&#43;</span>
       </button>
     </form>
@@ -72,11 +73,17 @@ export default {
       // if(this.$refs.inputList.value !== '') {
       //   this.taskList.splice(0, 0, []);
       // }
+      let list = document.querySelectorAll('.list-item');
+      let list2 = this.$refs.listItem;
+      console.log(list);
+      console.log(list2);
+      list.classList.add('checkIcon');
 
       this.$nextTick(() => {
         //this.$refs.inputList.querySelectorAll('input')[index + 1].focus()
         this.$refs.listItem.classList.add('checkIcon');
       })
+      this.$store.state.taskList.push(index);
     },
     // addBoard() {
     //   let setObj = {
