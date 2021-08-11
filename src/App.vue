@@ -1,22 +1,18 @@
 <template>
   <div id="app">
-    <Header />
-    <addList />
-    <Board />
+    <Login />
+
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import addList from '@/components/addList.vue'
-import Board from '@/components/Board.vue'
+import Login from '@/components/Login.vue'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    addList,
-    Board
+    Login
   }
 }
 </script>
