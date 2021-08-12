@@ -1,29 +1,30 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-import addList from '@/components/addList'
-import Login from '@/components/Login'
-import SignUp from '@/components/SignUp'
-
-export default new Router({
+const router = new VueRouter({
     mode: 'history',
     routes: [
         {
             path: '/',
+            redirect: '/Login'
+        },
+        {
+            path: '/addList',
             name: 'addList',
-            component: addList
+            component: () => import('@/components/addList')
         },
         {
             path: '/login',
             name: 'Login',
-            component: Login
+            component: () => import('@/components/Login')
         },
         {
             path: '/SignUp',
             name: 'signUp',
-            component: SignUp
+            component: () => import('@/components/SignUp')
         }
     ]
 })
+export default router

@@ -3,6 +3,7 @@ import App from './App.vue'
 import { store } from './store.js'
 import 'es6-promise/auto'
 import firebase from "firebase";
+import router from './router';
 
 Vue.config.productionTip = false
 
@@ -18,5 +19,6 @@ firebase.initializeApp({
 
 new Vue({
   store,
+  router,
   render: h => h(App),
 }).$mount('#app')

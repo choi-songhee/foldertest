@@ -4,7 +4,7 @@
     <input type="text" placeholder="email"><br>
     <input type="password" placeholder="password"><br>
     <button>가입하기</button>
-    <span>로그인하기</span>
+    <span><router-link to="/login">로그인하기</router-link></span>
   </div>
 
 </template>
