@@ -3,7 +3,7 @@
     <h3>Login</h3>
     <input type="text" placeholder="email"><br>
     <input type="password" placeholder="password"><br>
-    <button>Login</button>
+    <button @click="login">Login</button>
     <p>계정이 없다면, 회원가입을 먼저 진행해주세요 !</p>
     <button><router-link to="/signUp">회원가입</router-link></button>
   </div>
@@ -15,7 +15,12 @@ export default {
   name: 'login',
   data() {
     return {
-    };
+    }
+  },
+  methods: {
+    login() {
+      this.$router.replace('home')
+    }
   }
 }
 </script>
