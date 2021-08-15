@@ -17,8 +17,11 @@ firebase.initializeApp({
   measurementId: "G-X1YH4Z1740"
 })
 
-new Vue({
-  store,
-  router,
-  render: h => h(App),
-}).$mount('#app')
+firebase.auth().onAuthStateChanged(function(user) {//eslint-disable-line no-unused-vars
+  new Vue({
+    store,
+    router,
+    render: h => h(App),
+  }).$mount('#app')
+})
+

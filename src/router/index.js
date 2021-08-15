@@ -7,7 +7,7 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: '*',
             redirect: '/Login'
         },
         {
@@ -28,7 +28,10 @@ const router = new VueRouter({
         {
             path: '/home',
             name: 'home',
-            component: () => import('@/components/Home')
+            component: () => import('@/components/Home'),
+            meta: {
+                requiresAuth: true
+            }
         }
     ]
 })

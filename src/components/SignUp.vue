@@ -28,9 +28,9 @@ export default {
   },
   methods: {
     signUp() {
-      firebase.auth().createUserWidthEmailAndPassword(this.userName, this.userEmail, this.userPassword).then(
-        function() {
-          alert('가입완료 되었습니')
+      firebase.auth().createUserWithEmailAndPassword(this.userEmail, this.userPassword).then(
+        function(user) { //eslint-disable-line no-unused-vars
+          alert('가입완료 되었습니다')
         },
         function(err) {
           alert(err.message)

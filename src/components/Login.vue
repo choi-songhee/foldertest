@@ -2,8 +2,8 @@
   <div class="login">
     <h1>Login</h1>
     <div class="inputArea">
-      <input type="text" placeholder="Email"><br>
-      <input type="password" placeholder="Password"><br>
+      <input type="text" v-model="userEmail" placeholder="Email"><br>
+      <input type="password" v-model="userPassword" placeholder="Password"><br>
     </div>
     <button @click="login">Login</button>
     <p class="signup-text">아직 회원이 아니신가요?
@@ -14,15 +14,27 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   name: 'login',
   data() {
     return {
+      userEmail: '',
+      userPassword: ''
     }
   },
   methods: {
     login() {
-      this.$router.replace('home')
+      // this.$router.replace('home')
+      firebase.auth().signInWithEmailAndPassword(this.userEmail, this.userPassword).then(
+          function(user) {//eslint-disable-line no-unused-vars
+            alert('로그인 되었습니다')
+            this.$router.replace('home')
+          },
+          function(err) {
+            alert(err.message)
+          }
+      )
     }
   }
 }
